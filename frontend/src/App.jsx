@@ -155,7 +155,6 @@ function App() {
             <UserRound size={20} aria-hidden="true" />
             <div>
               <h2>Kullanıcı Bilgileri</h2>
-              <p>Bilgileri ne kadar net yazarsan çıktı o kadar kullanışlı olur.</p>
             </div>
           </div>
 
@@ -260,7 +259,6 @@ function App() {
             <Languages size={20} aria-hidden="true" />
             <div>
               <h2>AI Çıktısı</h2>
-              <p>Bir işlem seç, çıktı burada hazır hale gelsin.</p>
             </div>
           </div>
 

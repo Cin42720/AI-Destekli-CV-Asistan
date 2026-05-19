@@ -8,11 +8,11 @@
   --ink: #172026;
   --muted: #66737f;
   --line: #d7dee5;
-  --teal: #117c78;
-  --teal-dark: #0b5d59;
+  --teal: #c9342b;
+  --teal-dark: #8f1f18;
   --coral: #d6634f;
   --amber: #b7791f;
-  --focus: #1a8f89;
+  --focus: #c9342b;
   --shadow: 0 16px 45px rgba(23, 32, 38, 0.09);
 }
 
@@ -137,12 +137,6 @@ h1 {
   font-size: 1.08rem;
 }
 
-.panel-title p {
-  margin-bottom: 0;
-  color: var(--muted);
-  font-size: 0.94rem;
-}
-
 .grid {
   display: grid;
   gap: 14px;
@@ -194,7 +188,7 @@ h1 {
 .field select:focus {
   border-color: var(--focus);
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(26, 143, 137, 0.16);
+  box-shadow: 0 0 0 3px rgba(201, 52, 43, 0.16);
 }
 
 .form-actions,
@@ -224,7 +218,7 @@ h1 {
 }
 
 .ghost-button:first-child {
-  border-color: rgba(17, 124, 120, 0.35);
+  border-color: rgba(201, 52, 43, 0.35);
   color: var(--teal-dark);
 }
 
@@ -257,7 +251,7 @@ h1 {
 }
 
 .action-button:nth-child(3) {
-  border-color: rgba(17, 124, 120, 0.35);
+  border-color: rgba(201, 52, 43, 0.35);
   color: var(--teal-dark);
 }
 
@@ -405,4 +399,3 @@ h1 {
     flex: 1;
   }
 }
-

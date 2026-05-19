@@ -13,7 +13,7 @@ CareerCraft AI, öğrenciler ve yeni mezunlar için hazırlanmış yapay zekâ d
 7. Oluşturulan metin ekranda görüntülenir.
 8. Kullanıcı sonucu `Kopyala` butonu ile panoya kopyalayabilir veya `İndir` butonu ile `.txt` dosyası olarak indirebilir.
 
-Demo kullanım için API anahtarı zorunlu değildir. Proje varsayılan olarak demo modunda çalışır ve örnek yapay zekâ çıktıları üretir. Gerçek OpenAI veya Gemini API kullanılmak istenirse `backend/.env` dosyasına API anahtarı eklenebilir.
+Uygulama gerçek yapay zekâ API'si ile çalışır. API anahtarı eksik veya hatalıysa backend hata döndürür ve otomatik hazır metin üretmez.
 
 ## Özellikler
 
@@ -32,7 +32,7 @@ Demo kullanım için API anahtarı zorunlu değildir. Proje varsayılan olarak d
 
 - Frontend: React + Vite
 - Backend: FastAPI
-- Yapay zekâ: Demo modu, Groq Llama 3.3 70B, OpenAI API veya Gemini API
+- Yapay zekâ: Groq Llama 3.3 70B, OpenAI API veya Gemini API
 - Veri saklama: Tarayıcı LocalStorage
 
 ## Gereklilikler
@@ -44,13 +44,13 @@ Projeyi çalıştırmak için bilgisayarda aşağıdaki araçların kurulu olmas
 - Python 3.10 veya üzeri
 - pip
 
-Demo modunda çalıştırmak için API anahtarı gerekmez. Gerçek yapay zekâ modeli kullanılacaksa ilgili API anahtarı `backend/.env` dosyasına eklenmelidir. Ödev için önerilen gerçek model seçeneği Groq üzerinden çalışan `llama-3.3-70b-versatile` modelidir.
+Uygulamanın metin üretmesi için geçerli bir yapay zekâ API anahtarı gerekir. Ödev için önerilen model seçeneği Groq üzerinden çalışan `llama-3.3-70b-versatile` modelidir.
 
 ## Önemli Notlar
 
 - API anahtarları frontend tarafında tutulmaz.
 - `.env` dosyası normalde gizli bilgiler içerdiği için GitHub'a yüklenmemelidir.
-- Ödev kontrolü için API anahtarı görünür bırakılacaksa yalnızca bu proje için oluşturulmuş, limitli ve sonradan iptal edilecek bir demo anahtarı kullanılmalıdır.
+- Bu ödevde hocanın doğrudan test edebilmesi için yalnızca bu projeye özel, limitli ve sonradan iptal edilecek bir Groq anahtarı `backend/.env` dosyasına eklenmiştir.
 - Proje eğitim ve ödev amacıyla hazırlanmıştır.
 - Üretilen CV ve ön yazı metinleri kullanıcı tarafından kontrol edilmelidir.
 - Uygulama kullanıcının girdiği bilgilere göre metin üretir, gerçek dışı deneyim eklememeyi hedefler.
@@ -66,6 +66,8 @@ career-ai-assistant/
       main.jsx
       styles.css
   backend/
+    .env
+    .env.example
     main.py
     ai_service.py
     prompts.py
@@ -83,7 +85,6 @@ cd backend
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-copy .env.example .env
 uvicorn main:app --reload --port 8000
 ```
 
@@ -95,11 +96,11 @@ npm install
 npm run dev
 ```
 
-Uygulama varsayılan olarak `http://localhost:5173` adresinde çalışır. Backend `http://localhost:8000` adresindedir.
+Uygulama varsayılan olarak `http://localhost:5173` adresinde çalışır. Backend `http://localhost:8000` adresindedir. Repoda `backend/.env` dosyası bulunduğu için hoca projeyi klonladıktan sonra ek API ayarı yapmadan deneyebilir.
 
 ## Yapay Zekâ API Kullanımı
 
-Proje varsayılan olarak `AI_PROVIDER=mock` ile çalışır. Bu mod internet veya API anahtarı gerektirmez ve demo için profesyonel örnek metinler üretir.
+Proje varsayılan olarak gerçek yapay zekâ API kullanacak şekilde hazırlanmıştır. API anahtarı eksikse backend hata döndürür ve metin üretmez.
 
 Ödev için Llama 3.3 70B kullanmak istenirse `backend/.env` dosyası şu şekilde düzenlenebilir:
 

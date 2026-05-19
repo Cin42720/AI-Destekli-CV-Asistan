@@ -290,7 +290,7 @@ function App() {
                 <div className="result-header">
                   <div>
                     <h3>{result.title}</h3>
-                    <span>{result.provider === "mock" ? "Demo AI modu" : `${result.provider} API`}</span>
+                    <span>{result.provider} API</span>
                   </div>
                   <div className="result-tools">
                     <button type="button" onClick={copyResult} title="Çıktıyı kopyala">

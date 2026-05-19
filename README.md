@@ -44,14 +44,15 @@ Projeyi çalıştırmak için bilgisayarda aşağıdaki araçların kurulu olmas
 - Python 3.10 veya üzeri
 - pip
 
-Uygulamanın metin üretmesi için geçerli bir yapay zekâ API anahtarı gerekir. Ödev için önerilen model seçeneği Groq üzerinden çalışan `llama-3.3-70b-versatile` modelidir.
+Uygulamanın metin üretmesi için geçerli bir yapay zekâ API anahtarı gerekir. Varsayılan model seçeneği Groq üzerinden çalışan `llama-3.3-70b-versatile` modelidir.
 
 ## Önemli Notlar
 
 - API anahtarları frontend tarafında tutulmaz.
 - `.env` dosyası normalde gizli bilgiler içerdiği için GitHub'a yüklenmemelidir.
-- Bu ödevde hocanın doğrudan test edebilmesi için yalnızca bu projeye özel, limitli ve sonradan iptal edilecek bir Groq anahtarı `backend/.env` dosyasına eklenmiştir.
-- Proje eğitim ve ödev amacıyla hazırlanmıştır.
+- Bu repoda yer alan API anahtarı yalnızca proje tanıtımı ve test süreci için sınırlandırılmış geçici bir anahtardır.
+- Üretim ortamında API anahtarı GitHub'a yüklenmemeli, sunucu ortam değişkenleri üzerinden yönetilmelidir.
+- Proje eğitim ve portfolyo amacıyla hazırlanmıştır.
 - Üretilen CV ve ön yazı metinleri kullanıcı tarafından kontrol edilmelidir.
 - Uygulama kullanıcının girdiği bilgilere göre metin üretir, gerçek dışı deneyim eklememeyi hedefler.
 
@@ -73,7 +74,6 @@ career-ai-assistant/
     prompts.py
     schemas.py
     requirements.txt
-    .env.example
 ```
 
 ## Çalıştırma
@@ -96,13 +96,13 @@ npm install
 npm run dev
 ```
 
-Uygulama varsayılan olarak `http://localhost:5173` adresinde çalışır. Backend `http://localhost:8000` adresindedir. Repoda `backend/.env` dosyası bulunduğu için hoca projeyi klonladıktan sonra ek API ayarı yapmadan deneyebilir.
+Uygulama varsayılan olarak `http://localhost:5173` adresinde çalışır. Backend `http://localhost:8000` adresindedir. Repoda `backend/.env` dosyası bulunduğu için proje ek API ayarı yapmadan test edilebilir.
 
 ## Yapay Zekâ API Kullanımı
 
 Proje varsayılan olarak gerçek yapay zekâ API kullanacak şekilde hazırlanmıştır. API anahtarı eksikse backend hata döndürür ve metin üretmez.
 
-Ödev için Llama 3.3 70B kullanmak istenirse `backend/.env` dosyası şu şekilde düzenlenebilir:
+Llama 3.3 70B kullanmak için `backend/.env` dosyası şu şekilde düzenlenebilir:
 
 ```env
 AI_PROVIDER=groq
@@ -135,7 +135,7 @@ Bu projede yapay zekâ iki şekilde kullanılmıştır:
 
 API anahtarları güvenlik nedeniyle frontend tarafında tutulmaz. Frontend yalnızca FastAPI backend'e istek gönderir; gerçek yapay zekâ API çağrısı backend tarafından yapılır.
 
-Ödev kontrolü için limitli ve ücretsiz Groq/Llama anahtarı kullanılırsa da anahtar frontend kodunda değil, backend tarafındaki `.env` dosyasında tutulur. Böylece uygulama mimarisi güvenli kullanım mantığını göstermeye devam eder.
+Limitli Groq/Llama anahtarı kullanılsa bile anahtar frontend kodunda değil, backend tarafındaki `.env` dosyasında tutulur. Böylece uygulama mimarisi güvenli kullanım mantığını korur.
 
 ## Prompt Mantığı
 
